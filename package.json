@@ -1,0 +1,19 @@
+{
+  "name": "node_log",
+  "version": "1.0.0",
+  "description": "sql support blog written in nodejs and exress framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanviredusecond/EXPRESS_BASE_SQL_BLOG.git"
+  },
+  "author": "tanvir rahman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tanviredusecond/EXPRESS_BASE_SQL_BLOG/issues"
+  },
+  "homepage": "https://github.com/tanviredusecond/EXPRESS_BASE_SQL_BLOG#readme"
+}
