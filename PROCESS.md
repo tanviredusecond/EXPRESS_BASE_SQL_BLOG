@@ -135,3 +135,14 @@ we need to change the href like that
 so we get the get request now
 we need to show in the post pages
 just like the php get reqest handling
+
+
+now we need to change the post.js and ad username field
+and the created_at attribute
+
+now we need a username field in the create_post
+and the date will be automatically added
+
+then we need to modify the index.edge to show the username
+
+and adding the information in the post/:id too to make it preety 
