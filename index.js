@@ -14,18 +14,45 @@ app.use(express.static('public'));
 const path = require('path');
 
 // import the express edges for the edge engine
-const expressEdge = require('express-edge');
+// to use the express edges we have to import with the config
+const { config, engine } = require('express-edge');
+// setting the path for rendering
+app.use(engine);
+app.set('views',__dirname+'/views');
 
 // we send the index file and the __dirname is he current directory
 
-app.get('/',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'pages/index.html'));
-});
 
+// changing this html and replacing with the views/index
+//app.get('/',(req,res)=>{
+//    res.sendFile(path.resolve(__dirname,'pages/index.html'));
+//});
+
+app.get('/',(req,res)=>{
+    res.render('index');
+})
+
+app.get('/contact',(req,res)=>{
+    res.render('contact');
+})
+
+app.get('/post',(req,res)=>{
+    res.render('post');
+})
 
 app.get('/about',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'pages/about.html'));
-});
+    res.render('about');
+})
+
+
+
+
+
+
+
+//app.get('/about',(req,res)=>{
+//    res.sendFile(path.resolve(__dirname,'pages/about.html'));
+//});
 
 
 
