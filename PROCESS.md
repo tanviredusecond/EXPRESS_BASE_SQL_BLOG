@@ -53,3 +53,38 @@ remember render function always search for thr view directory
 
 like the python jinja we use the layout file and extend it
 
+its just like the python junja
+
+just jeta base layout seekhabe
+
+@!section('content')
+
+likhte hobe cause ekhanei change hobe
+
+and je jay gay chage hobe sekhane
+
+{% extends 'layouts.app' %}
+
+er bodole
+
+@layoyt('layouts.app')
+
+end{% block content %}
+
+    {% endblock %}
+
+er poriborte
+
+    @section('content')
+
+    @endsection
+
+hobe
+
+so index complete make all the rest
+like post
+and about and contact
+
+now every route is complete 
+
+now this is the database time
