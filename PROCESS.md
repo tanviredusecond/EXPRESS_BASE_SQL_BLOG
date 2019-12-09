@@ -148,6 +148,8 @@ we can use two pachages
 1) multer
 2) express-fileuploader
 
-change the form into multipart enc type
 
-and add the field for file upload
+
+now we add a middleware
+
+and now we add controller to make it like a MVC
