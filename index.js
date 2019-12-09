@@ -1,8 +1,31 @@
 // import the express framework
 const express = require('express');
 
+// importing the mongoose database driver
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+// impoer the database schema
+const Post = require('./database/models/Post');
+
 // start the app
 const app = new express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+// here we connect with the mongoose database
+url = "mongodb://localhost:27017/node_blog";
+const connect = mongoose.connect(url);
+connect.then((db)=>{
+    console.log("connected to database");
+});
+
+
+
+
+
+
+
 
 // show the static directory it will load everything
 // only the stsatic css js not the pages
@@ -49,6 +72,19 @@ app.get('/post',(req,res)=>{
 app.get('/about',(req,res)=>{
     res.render('about');
 })
+
+
+// adding the post request for the post
+
+app.post('/post/store',(req,res)=>{
+    //not storing anything yet
+    //console.log(req.body);
+    Post.create(req.body,(err,post)=>{
+        console.log("data inserted ");
+        res.redirect('/')
+    })
+    //store in the database
+});
 
 
 
