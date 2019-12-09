@@ -71,8 +71,14 @@ app.get('/post/new',(req,res)=>{
     res.render('create');
 })
 
-app.get('/post',(req,res)=>{
-    res.render('post');
+
+//we modify this route to show the single post
+app.get('/post/:id',async (req,res)=>{
+    //fetch the post with the post ID
+    //res.render('post');
+    const post = await Post.findById(req.params.id)
+    //console.log(post);
+    res.render('post',{post})
 })
 
 

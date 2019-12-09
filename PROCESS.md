@@ -110,3 +110,28 @@ we need to view the data into the front pages
 
 we change the '/' root and we render the data
 with the index
+
+and we render it with a for loop
+
+insted of {% for post in posts%}
+
+            {% endfor %}
+
+@each(post in posts)
+    {{post.title}}
+
+@endeach
+
+
+now we need to display each blog 
+so we modify out previous post with post/:id
+and now we need our dishplay that when the link is created it will
+send the id number just like a get request
+and for clickable link we need to link with the id
+in the index
+we need to change the href like that
+<a href="/post/{{post._id}}">
+
+so we get the get request now
+we need to show in the post pages
+just like the php get reqest handling
