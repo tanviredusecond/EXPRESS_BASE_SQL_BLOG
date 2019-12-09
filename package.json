@@ -4,7 +4,8 @@
   "description": "sql support blog written in nodejs and exress framework",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/tanviredusecond/EXPRESS_BASE_SQL_BLOG/issues"
   },
-  "homepage": "https://github.com/tanviredusecond/EXPRESS_BASE_SQL_BLOG#readme"
+  "homepage": "https://github.com/tanviredusecond/EXPRESS_BASE_SQL_BLOG#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-edge": "^2.0.1",
+    "nodemon": "^2.0.1",
+    "startbootstrap-clean-blog": "^5.0.8"
+  }
 }
