@@ -135,3 +135,19 @@ we need to change the href like that
 so we get the get request now
 we need to show in the post pages
 just like the php get reqest handling
+
+
+w uadd the useraname and the created at in the database  post.js
+and add 
+
+a field in the create post and then render to the index,js and post.js
+
+now we need to upload images to the blog
+
+we can use two pachages 
+1) multer
+2) express-fileuploader
+
+change the form into multipart enc type
+
+and add the field for file upload

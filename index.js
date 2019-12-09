@@ -9,6 +9,8 @@ const Post = require('./database/models/Post');
 
 // start the app
 const app = new express();
+const storePost = require('./middleware/storePost');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -89,8 +91,10 @@ app.get('/about',(req,res)=>{
 
 
 // adding the post request for the post
+// adding the validation middlwware here
 
-app.post('/post/store',(req,res)=>{
+
+app.post('/post/store',storePost,(req,res)=>{
     //not storing anything yet
     //console.log(req.body);
     Post.create(req.body,(err,post)=>{
