@@ -55,36 +55,46 @@ like the python jinja we use the layout file and extend it
 
 its just like the python junja
 
-just jeta base layout seekhabe
-
+just jeta base layout sekhane
 @!section('content')
 
 likhte hobe cause ekhanei change hobe
-
-and je jay gay chage hobe sekhane
+and je jay gay change hobe sekhane
 
 {% extends 'layouts.app' %}
-
 er bodole
-
 @layoyt('layouts.app')
-
-end{% block content %}
-
+and 
+    {% block content %}
     {% endblock %}
 
 er poriborte
-
     @section('content')
-
     @endsection
-
 hobe
 
-so index complete make all the rest
-like post
-and about and contact
-
+so index complete 
+make all the rest like post and about and contact
+now after making the route add in the layout navbar
 now every route is complete 
-
 now this is the database time
+we make a folder database and then put the schema
+for post we need the mongoose packages
+
+after the Post.js layout
+we add the form for entering the data
+ we create a create post page and 
+ and then add the routeto the index.js
+
+ when you add the nested URL like
+
+ /post/new  you will see that the css does not working
+
+ // solve this problem by adding '/' before css url in the layout.app.edge file
+ like 
+ <link href="css/clean-blog.min.css" rel="stylesheet">
+to
+
+ <link href="/css/clean-blog.min.css" rel="stylesheet">
+
+this will solve the problem

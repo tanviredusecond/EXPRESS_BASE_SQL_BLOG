@@ -20,6 +20,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-edge": "^2.0.1",
+    "mongoose": "^5.7.14",
     "nodemon": "^2.0.1",
     "popper.js": "^1.16.0",
     "startbootstrap-clean-blog": "^5.0.8"
