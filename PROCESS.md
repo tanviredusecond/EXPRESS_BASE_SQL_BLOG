@@ -98,3 +98,15 @@ to
  <link href="/css/clean-blog.min.css" rel="stylesheet">
 
 this will solve the problem
+
+now we create a form for the post data and we post
+it to the url /posts/store 
+and for handling ht e post request fetch data
+we import the body-parser and for storing data in the mongodb we need mongoose and a post route in the index.js
+
+after in the saving the post in the mongodatabase
+we need to view the data into the front pages
+
+
+we change the '/' root and we render the data
+with the index

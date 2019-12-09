@@ -51,8 +51,16 @@ app.set('views',__dirname+'/views');
 //    res.sendFile(path.resolve(__dirname,'pages/index.html'));
 //});
 
-app.get('/',(req,res)=>{
-    res.render('index');
+app.get('/',async (req,res)=>{
+    
+    //res.render('index');
+    //we change the url to show the dynaminc data for the 
+    // of the post
+    // we use async function so it will first fetch all the data
+    // fetch all the data
+    const posts = await Post.find({})
+    res.render('index',{posts})
+
 })
 
 app.get('/contact',(req,res)=>{
