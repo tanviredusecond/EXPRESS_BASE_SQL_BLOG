@@ -10,13 +10,18 @@ const Post = require('./database/models/Post');
 // start the app
 const app = new express();
 const storePost = require('./middleware/storePost');
+const createPostController = require('./controller/createPost');
+const getPostController = require('./controller/getPost');
+const homePageController = require('./controller/homePage');
+const storePostController = require('./controller/storePost');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // here we connect with the mongoose database
-url = "mongodb://localhost:27017/node_blog";
+
+url = "mongodb+srv://tanvir:1122@cluster0-cjrha.mongodb.net/node_blog";
 const connect = mongoose.connect(url);
 connect.then((db)=>{
     console.log("connected to database");
@@ -43,6 +48,7 @@ const path = require('path');
 const { config, engine } = require('express-edge');
 // setting the path for rendering
 app.use(engine);
+
 app.set('views',__dirname+'/views');
 
 // we send the index file and the __dirname is he current directory
@@ -53,76 +59,98 @@ app.set('views',__dirname+'/views');
 //    res.sendFile(path.resolve(__dirname,'pages/index.html'));
 //});
 
-app.get('/',async (req,res)=>{
+
+
+/// adding all the controller
+app.get('/',homePageController);
+app.get('/post/new',createPostController);
+app.get('/post/:id',getPostController);
+app.post('/post/store',storePostController);
+
+
+
+
+
+
+
+
+// // changing it to comntroller
+// app.get('/',async (req,res)=>{
     
-    //res.render('index');
-    //we change the url to show the dynaminc data for the 
-    // of the post
-    // we use async function so it will first fetch all the data
-    // fetch all the data
-    const posts = await Post.find({})
-    res.render('index',{posts})
+//     //res.render('index');
+//     //we change the url to show the dynaminc data for the 
+//     // of the post
+//     // we use async function so it will first fetch all the data
+//     // fetch all the data
+//     const posts = await Post.find({})
+//     res.render('index',{posts})
 
-})
+// })
 
-app.get('/contact',(req,res)=>{
-    res.render('contact');
-})
-
-app.get('/post/new',(req,res)=>{
-    res.render('create');
-})
+// // not changing convert to controller will be n future
+ app.get('/contact',(req,res)=>{
+     res.render('contact');
+ })
 
 
-//we modify this route to show the single post
-app.get('/post/:id',async (req,res)=>{
-    //fetch the post with the post ID
-    //res.render('post');
-    const post = await Post.findById(req.params.id)
-    //console.log(post);
-    res.render('post',{post})
-})
+// // change will be in the controller
+// app.get('/post/new',(req,res)=>{
+//     res.render('create');
+// })
 
 
 
-app.get('/about',(req,res)=>{
-    res.render('about');
-})
+// //change it to controller
+// //we modify this route to show the single post
+// app.get('/post/:id',async (req,res)=>{
+//     //fetch the post with the post ID
+//     //res.render('post');
+//     const post = await Post.findById(req.params.id)
+//     //console.log(post);
+//     res.render('post',{post})
+// })
 
 
-// adding the post request for the post
-// adding the validation middlwware here
+// // not changing this
+ app.get('/about',(req,res)=>{
+          res.render('about');
+ })
 
 
-app.post('/post/store',storePost,(req,res)=>{
-    //not storing anything yet
-    //console.log(req.body);
-    Post.create(req.body,(err,post)=>{
-        console.log("data inserted ");
-        res.redirect('/')
-    })
-    //store in the database
-});
+// // adding the post request for the post
+// // adding the validation middlwware here
 
 
-
-
-
-
-
-//app.get('/about',(req,res)=>{
-//    res.sendFile(path.resolve(__dirname,'pages/about.html'));
-//});
+// //chaning to controller
+// app.post('/post/store',(req,res)=>{
+//     //not storing anything yet
+//     //console.log(req.body);
+//     Post.create(req.body,(err,post)=>{
+//         console.log("data inserted ");
+//         res.redirect('/')
+//     })
+//     //store in the database
+// });
 
 
 
-app.get('/post',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'pages/post.html'));
-});
 
-app.get('/contact',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'pages/contact.html'));
-});
+
+
+
+// //app.get('/about',(req,res)=>{
+// //    res.sendFile(path.resolve(__dirname,'pages/about.html'));
+// //});
+
+
+
+// app.get('/post',(req,res)=>{
+//     res.sendFile(path.resolve(__dirname,'pages/post.html'));
+// });
+
+// app.get('/contact',(req,res)=>{
+//     res.sendFile(path.resolve(__dirname,'pages/contact.html'));
+// });
 
 
 
