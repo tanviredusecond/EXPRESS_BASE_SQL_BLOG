@@ -4,6 +4,7 @@ const express = require('express');
 // importing the mongoose database driver
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 // impoer the database schema
 const Post = require('./database/models/Post');
 
