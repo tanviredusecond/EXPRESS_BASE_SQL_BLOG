@@ -5,6 +5,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
+var authenticate = require('./middleware/passport_strategy/authenticate');
 // impoer the database schema
 const Post = require('./database/models/Post');
 
@@ -15,6 +16,9 @@ const createPostController = require('./controller/createPost');
 const getPostController = require('./controller/getPost');
 const homePageController = require('./controller/homePage');
 const storePostController = require('./controller/storePost');
+
+// this is a separate
+const UserRouter = require('./controller/UserRegAuth');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -61,7 +65,7 @@ app.set('views',__dirname+'/views');
 //});
 
 
-
+app.use('/users',UserRouter);
 /// adding all the controller
 app.get('/',homePageController);
 app.get('/post/new',createPostController);
