@@ -11,6 +11,9 @@ const Post = require('./database/models/Post');
 
 // start the app
 const app = new express();
+
+// for the login check this have to be used
+app.use(passport.initialize());
 const storePost = require('./middleware/storePost');
 const createPostController = require('./controller/createPost');
 const getPostController = require('./controller/getPost');
@@ -18,7 +21,7 @@ const homePageController = require('./controller/homePage');
 const storePostController = require('./controller/storePost');
 
 // this is a separate
-const UserRouter = require('./controller/UserRegAuth');
+const UserRouter = require('./controller/UserRegPost');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
