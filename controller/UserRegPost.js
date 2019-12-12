@@ -59,12 +59,13 @@ authapp.get('/login',(req,res)=>{
 authapp.post('/login/post',passport.authenticate('local'),(req,res)=>{
     req.body.user = req.body.username;
     console.log(req.body.user);
-    res.statusCode = 200;
-    res.setHeader('Content-Type','application/json');
-    res.json({
-        success:true,
-        status:'login successfull'
-    });
+    //res.statusCode = 200;
+    //res.setHeader('Content-Type','application/json');
+    //res.json({
+    //    success:true,
+    //    status:'login successfull'
+    //});
+    res.redirect('/post/new');
 });
 
 
